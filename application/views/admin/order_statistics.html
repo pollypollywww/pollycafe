@@ -70,7 +70,7 @@
           <div class="content">
             <h3 class="text-center mt-4" style="color:#b3848f;">銷售數據統計</h3>
             <p class="text-center" style="font-size: 0.9rem;">以結案訂單計算 ( 已付款 / 已送達 )</p>
-
+            {{#if sumTotal}}
             <div class="row mt-4 p-md-3">
               <div class="col-12 col-md-4">
                 <div class="amontBox p-3 mb-4">
@@ -123,6 +123,7 @@
               </div>
 
             </div>
+            {{/each}}{{else}}{{message}}{{/if}}
           </div>
         </div>
       </div>
