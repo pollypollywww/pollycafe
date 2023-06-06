@@ -57,7 +57,7 @@ router.post("/",
             path = req.session.lastPath;
         }
         res.json({
-            message: "燈入成功",
+            message: "登入成功",
             redirect: path,
         });
     },

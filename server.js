@@ -50,7 +50,7 @@ app.get("/load",
             console.log(err);
             res.status(500).json({ message: "server端發生錯誤" });
         }
-    });
+});
 
 app.get("/login",
     loginCheck.loginedTureOrNot,
