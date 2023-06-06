@@ -327,7 +327,7 @@ router.put("/order/pushPaymentStatus", async(req, res)=>{
         res.status(500).json({ message: "server端發生錯誤" });  
     }
 
-})
+});
 
 router.get("/statistics", async(req, res) => {
     try{
@@ -377,7 +377,7 @@ router.get("/statistics", async(req, res) => {
         ]);
         //console.log(countType);
 
-        if(result_sum && countItem && countType){
+        if(result_sum.length > 0 && countItem.length > 0 && countType.length > 0){
             let sumTotal = result_sum[0].sumSubTotal;
             let sumQuantity = result_sum[0].sumQuantity;
             let sumOrder = result_sum[0].sumOrder;
@@ -390,6 +390,6 @@ router.get("/statistics", async(req, res) => {
         console.log(err);
         res.status(500).json({ message: "server端發生錯誤" });
     }
-})
+});
 
 module.exports = router;
