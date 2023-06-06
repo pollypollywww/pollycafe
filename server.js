@@ -220,7 +220,7 @@ app.use("/admin", adminRouter);
 app.use("/auth", authRouter);
 app.use("/cart", cartRouter);
 
-const portNum = 8088;
+const portNum = process.env.PORT || 8088;
 app.listen(portNum, () => {
     console.log(`Server is running at localhost:${portNum}`);
 });
