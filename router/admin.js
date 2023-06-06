@@ -189,14 +189,7 @@ router.get("/mem/orderList/:userId", async(req, res) => {
         let invalidOrder = await model.order.countDocuments({ UserName, PaymentStatus: "已退款", OrderStatus: "已作廢" });
         let ongoingOrder = countOrder - completeOrder - invalidOrder;
 
-        //console.log(result)
-        // if(result.length > 0){
-            res.render("admin/mem_order_list.html", { logUserName, UserName, result, countOrder, completeOrder, invalidOrder, ongoingOrder });
-        // }else{
-        //     let message = "該會員目前尚無訂單";
-        //     res.render("admin/mem_order_list.html", { logUserName, UserName, message, countOrder, completeOrder, invalidOrder, ongoingOrder });
-        // }
-            
+        res.render("admin/mem_order_list.html", { logUserName, UserName, result, countOrder, completeOrder, invalidOrder, ongoingOrder }); 
     }catch(err){
         console.log(err);
         res.status(500).json({ message: "server端發生錯誤" });

@@ -75,9 +75,9 @@
               <div class="col-12 col-md-4">
                 <div class="amontBox p-3 mb-4">
                   <h5 class="mb-4 text-center">數量及金額統計</h5>
-                  <p class="mb-2">訂單總數量： <span class="font-weight-bold">{{sumOrder}}</span></p>
-                  <p class="mb-2">產品總銷量： <span class="font-weight-bold">{{sumQuantity}}</span></p>
-                  <p class="mb-2">總營業額： <span class="font-weight-bold text-danger">$ {{LocaleString sumTotal}}</span></p>
+                  <p class="mb-2">訂單總數量： <span class="font-weight-bold">{{result.sumOrder}}</span></p>
+                  <p class="mb-2">產品總銷量： <span class="font-weight-bold">{{result.sumQuantity}}</span></p>
+                  <p class="mb-2">總營業額： <span class="font-weight-bold text-danger">$ {{LocaleString result.sumTotal}}</span></p>
                 </div>
                 <div class="typeBox">
                   <h5 class="mb-1 text-center">銷售類別統計</h5>
@@ -89,7 +89,7 @@
                       </tr>
                     </thead>
                     <tbody>
-                      {{#each countType}}
+                      {{#each result.countType}}
                       <tr>
                         <td data-th="類別">{{_id}}</td>
                         <td data-th="總銷量">{{count}}</td>
@@ -111,7 +111,7 @@
                     </tr>
                   </thead>
                   <tbody>
-                    {{#each countItem}}
+                    {{#each result.countItem}}
                     <tr>
                       <td data-th="Id">{{_id.ItemId}}</td>
                       <td data-th="名稱">{{_id.ItemName}}</td>

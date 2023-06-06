@@ -73,7 +73,7 @@
               <div class="col-xl-10" id="memOrder">
                 <p class="mb-0">會員帳號： {{UserName}}</p>
                 <p class="mb-0">訂單數量： {{countOrder}}&nbsp;&nbsp;( 進行中：{{ongoingOrder}}　結案：{{completeOrder}}　作廢：{{invalidOrder}} )</p>
-                {{#if result}}{{#each result}}
+                {{#each result}}
                 <div class="orderRecordBox bg-light p-md-2 mb-4">
                     <table class="table table-rwd text-center">
                         <thead>
@@ -198,7 +198,7 @@
                         </div>
                     </div>
                 </div>
-                {{/each}}{{else}}{{message}}{{/if}}
+                {{/each}}
               </div>
             </div>
           </div>
