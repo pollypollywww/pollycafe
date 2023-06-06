@@ -385,7 +385,7 @@ router.get("/statistics", async(req, res) => {
             result.push({ sumTotal, sumQuantity, sumOrder, countItem, countType});
             res.render("admin/order_statistics.html", { UserName, message: "查詢成功", result });
         }else{
-            res.render("admin/order_statistics.html", { UserName, message: "尚無訂單" });
+            res.render("admin/order_statistics.html", { UserName, message: "尚無結案訂單" });
         }
 
     }catch(err){
