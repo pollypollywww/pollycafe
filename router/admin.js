@@ -381,7 +381,12 @@ router.get("/statistics", async(req, res) => {
         let sumQuantity = result_sum[0].sumQuantity;
         let sumOrder = result_sum[0].sumOrder;
         //res.json({ message: "查詢成功", sumTotal, countItem });
-        res.render("admin/order_statistics.html", { UserName, message: "查詢成功", sumTotal, sumQuantity, sumOrder, countItem, countType });
+        if(sumTotal && sumQuantity && sumOrder){
+            res.render("admin/order_statistics.html", { UserName, message: "查詢成功", sumTotal, sumQuantity, sumOrder, countItem, countType });
+        }else{
+            res.render("admin/order_statistics.html", { UserName, message: "尚無訂單" });
+        }
+        
 
     }catch(err){
         console.log(err);
