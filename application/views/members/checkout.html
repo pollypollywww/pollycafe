@@ -1,0 +1,298 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/pageAll.css">
+    <link rel="stylesheet" href="/css/checkout.css">
+
+    <title>Polly Cafe</title>
+    <style>
+
+    </style>
+  </head>
+  <body>
+    <!-- ---------------- Header ---------------- -->
+    <header class="fixed-top">
+      <div class="container">
+        <nav class="navbar navbar-expand-md">
+          <div style="margin-left: -20px;">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2" style="border: none;">
+              <i class="fa-solid fa-bars" style="color: #666;"></i>
+            </button>
+          </div>
+
+
+          <!-- LEFT -->
+          <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">ABOUT</a>
+                  <div class="dropdown-menu">
+                    <a class="dropdown-item" href="/#ourProducts">Products</a>
+                    <a class="dropdown-item" href="/#aboutUs">About Us</a>
+                  </div>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">ONLINE SHOP</a>
+                  <div class="dropdown-menu">
+                    <a class="dropdown-item" href="/#cake">蛋糕</a>
+                    <a class="dropdown-item" href="/#bread">麵包</a>
+                    <a class="dropdown-item" href="/#others">其他點心</a>
+                    <a class="dropdown-item" href="/#coffeebeans">咖啡豆</a>
+                  </div>
+                </li>
+              </ul>
+          </div>
+
+          <!-- LOGO -->
+          <div class="mx-auto order-0">
+            <a class="navbar-brand" href="/">
+              <h2 class="font-weight-bold" style="color:#444;">Polly Café</h2>
+            </a>
+          </div>
+
+          <!-- RIGHT -->
+          <div class="navbar-collapse collapse w-100 order-2 dual-collapse2">
+              <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                  <a href="/logout" class="nav-link mr-1" id="logout">登出</a>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-user"></i></a>
+                  <div class="dropdown-menu">
+                    <a class="dropdown-item" href="/members/orderlist">訂單查詢</a>
+                    <a class="dropdown-item" href="/members/edit">修改會員資料</a>
+                    <a class="dropdown-item" href="/members/edit-pwd">修改密碼</a>
+                  </div>
+                </li>
+                <li class="nav-item">
+                  <a href="/cart" method="GET" class="nav-link" id="shoppingcart"><i class="fa-solid fa-cart-shopping"></i></a>
+                </li>
+              </ul>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <br><br>
+
+
+    <div class="container p-md-5 pt-3 my-4">
+
+      <!-- 配送方式 -->
+      <h4>配送方式</h4>
+      <div class="row px-1 pt-4 pb-2 box bg-light mb-4">
+        <div class="col-12">
+          <p class="msg" id="shippingMsg"></p>
+          <div class="form-group row px-3">
+            <div class="form-check form-check-inline btn shipping-btn">
+              <input class="form-check-input" type="radio" name="shippingType" id="shippingType01" value="宅配">
+              <label class="form-check-label btn shipping-btn" for="shippingType01">宅配</label>
+            </div>
+            <div class="form-check form-check-inline btn shipping-btn">
+              <input class="form-check-input" type="radio" name="shippingType" id="shippingType02" value="店取">
+              <label class="form-check-label btn shipping-btn" for="shippingType02">店取</label>
+            </div>
+            <div class="pt-3 pl-1 text-danger" id="shippingWarning"></div>
+          </div>          
+        </div>
+      </div>
+
+      <!-- 付款方式 -->
+      <h4>付款方式</h4>
+      <div class="row px-1 pt-4 pb-2 box bg-light mb-4">
+        <div class="col-12">
+          <p class="msg">本店免開統一發票</p>
+          <div class="form-group row px-3">
+            <div class="form-check form-check-inline btn shipping-btn">
+              <input class="form-check-input" type="radio" name="payment" id="payment-atm" value="ATM轉帳">
+              <label class="form-check-label btn shipping-btn" for="payment-atm">ATM轉帳</label>
+            </div>
+            <div class="form-check form-check-inline btn shipping-btn">
+              <input class="form-check-input" type="radio" name="payment" id="payment-creditcard" value="信用卡">
+              <label class="form-check-label btn shipping-btn" for="payment-creditcard">信用卡</label>
+            </div>
+            <div class="pt-3 pl-1 text-danger" id="paymentWarning"></div>
+          </div>
+        </div>
+        <div class="col-md-10 col-lg-7">
+          <div class="creditCard-group" id="creditCardGroup">
+          </div>
+        </div>
+      </div>
+
+      <!-- 付款人資料 -->
+      <h4>付款人資料</h4>
+      <div class="row px-1 px-md-2 pt-4 pb-2 box bg-light mb-4">
+        <div class="col-md-10 col-lg-7">
+          <div class="form-group row">
+            <label for="payerName" class="col-3 col-form-label">付款人</label>
+            <div class="col-9 d-flex">
+              <input type="text" name="payerName" id="payerName" class="form-control">
+              <div class="pt-1 pl-2 text-danger" id="payerNameWarning"></div>
+            </div>
+          </div>
+
+          <div class="form-group row phonenum-form">
+            <label for="payerPhoneNum" class="col-3 col-form-label">付款人電話</label>
+            <div class="col-9 d-flex">
+              <span class="areaCode">+886</span>
+              <input type="tel" name="payerPhoneNum" id="payerPhoneNum" class="form-control" maxlength="10" onkeyup="value=value.replace(/[^\d]/g,'')">
+              <div class="pt-1 pl-2 text-danger" id="payerPhoneNumWarning"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 收件人資料 -->
+      <h4>收件人資料</h4>
+      <div class="row px-1 px-md-2 pt-4 pb-2 box bg-light mb-4">
+        <div class="col-md-10 col-lg-7">
+          <div class="form-group row">
+            <label for="reciName" class="col-3 col-form-label">收件人</label>
+            <div class="col-9 d-flex">
+              <input type="text" name="reciName" id="reciName" class="form-control">
+              <div class="pt-1 pl-2 text-danger" id="reciNameWarning"></div>
+            </div>
+          </div>
+
+          <div class="form-group row phonenum-form">
+            <label for="reciPhoneNum" class="col-3 col-form-label">收件電話</label>
+            <div class="col-9 d-flex">
+              <span class="areaCode">+886</span>
+              <input type="tel" name="reciPhoneNum" id="reciPhoneNum" class="form-control" maxlength="10" onkeyup="value=value.replace(/[^\d]/g,'')">
+              <div class="pt-1 pl-2 text-danger" id="reciPhoneNumWarning"></div>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="" class="col-3 col-form-label">縣市區域</label>
+            <div class="col-9 d-flex">
+              <div class="col-6 pl-0 pr-1">
+                <select name="city" id="city" class="form-select form-control" aria-label="Default select example">
+                  <option selected disabled>縣市</option>
+                  <!-- <option value="台中市">台中市</option> -->
+                </select>
+              </div>
+              <div class="col-6 px-0">
+                <select name="district" id="district" class="form-select form-control" aria-label="Default select example">
+                  <option selected disabled>區域</option>
+                  <!-- <option value="北區">北區</option> -->
+                </select>
+              </div>
+              <div class="pt-1 pl-2 text-danger" id="cityWarning"></div>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="address" class="col-3 col-form-label">地址</label>
+            <div class="col-9 d-flex">
+              <input type="text" name="address" id="address" class="form-control">
+              <div class="pt-1 pl-2 text-danger" id="addressWarning"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 客人備註 -->
+      <h4>客人備註</h4>
+      <div class="row px-2 py-4 box bg-light mb-4">
+        <div class="col-12 msg">
+          <p class="msg">* 凡訂購蛋糕的顧客，皆免費提供一組蠟燭及餐具(5入)，蠟燭款式含數字、星星、愛心，請留言告知您要的其中一種款式</p>
+          <p class="msg">* 如未訂購蛋糕的顧客留言，將不予提供，請見諒</p>
+          <p class="msg">* 其他注意事項，也歡迎留言告知我們</p>
+        </div>
+        <div class="col-md-10 col-lg-7">
+          <textarea name="note" id="note" class="note form-control" style="resize: none;" maxlength="100"></textarea>
+        </div>
+      </div>
+
+      <!-- 訂單內容及金額 -->
+      <h4>訂單內容</h4>
+      <div class="row px-2 py-4 box mb-5 bg-light">
+        <div class="col-12">
+          <table class="table table-hover table-rwd">
+            <thead class="thead-dark">
+              <tr>
+                <th>名稱</th>
+                <th>價格</th>
+                <th>數量</th>
+                <th>小計</th>
+              </tr>
+            </thead>
+            <tbody id="cartBody">
+              <!-- <tr>
+                <td data-th="名稱"><p class="size-text"></p></td>
+                <td data-th="價格"></td>
+                <td data-th="數量"></td>
+                <td data-th="小計"></td>
+              </tr> -->
+            </tbody>
+          </table>
+
+          <div class="row box text-right mt-5 p-3" style="background-color: #F7F7F7;">
+            <div class="col">
+              <p>共計 <span id="cartCnt"></span> 項商品，數量共 <span id="cartQuantity"></span> 件</p>
+
+              <div class="row mb-2 justify-content-end">
+                <div class="col-6 col-md-4 font-weight-bold">金額</div>
+                <div class="col-6 col-md-3" id="subtotal"></div>
+              </div>
+              <div class="row mb-2 justify-content-end">
+                <div class="col-6 col-md-4 font-weight-bold">運費</div>
+                <div class="col-6 col-md-3" id="shipping"></div>
+              </div>
+              <div class="row ml-auto line"></div>
+              <div class="row mb-3 justify-content-end">
+                <div class="col-6 col-md-4 font-weight-bold">總計</div>
+                <div class="col-6 col-md-3 font-weight-bold text-danger" id="total"></div>
+              </div>
+  
+              <a class="btn btn-secondary btn-lg my-2" id="confirmCheckout">確認結帳</a>     
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- ---------------- Footer ---------------- -->
+    <footer class="footer">
+      <div class="container pt-3">
+        <div class="row">
+          <div class="col-12 d-flex justify-content-center mb-5">
+            <div class="left">
+              <p class="my-3 text-secondary contact">CONTACT</p>
+              <div class="footer-icon mb-1">
+                <a href="https://www.facebook.com/" target="_blank"><i class="fa-brands fa-facebook mr-2"></i></a>
+                <a href="http://instagram.com/" target="_blank"><i class="fa-brands fa-instagram mr-2"></i></a>
+                <a href="https://twitter.com/" target="_blank"><i class="fa-brands fa-twitter"></i></a>
+              </div>
+              <p class="mb-1">02-12345678</p>
+              <span><a href="mailto: pollypollywww@gmail.com" class="toThisLink"> pollypollywww@gmail.com</a></span>
+            </div>
+
+            <div class="right pt-4 pl-3">
+              <p class="mb-1 text-center pt-2">加入官方LINE</p>
+              <i class="fa-solid fa-qrcode fa-5x pl-3"></i>
+            </div>
+          </div>
+          
+        </div>
+        <p class="text-center mb-0">波波莉烘培坊</p>
+        <p class="text-center">Copyright © 2023 WanPOLLY All Rights Reserved.</p>
+      </div>
+    </footer>
+
+    <!-- jQuery and Bootstrap Bundle (includes Popper) -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js" integrity="sha512-quHCp3WbBNkwLfYUMd+KwBAgpVukJu5MncuQaWXgCrfgcxCJAq/fo+oqrRKOj+UKEmyMCG3tb8RB63W+EmrOBg==" crossorigin="anonymous"></script>
+    <script src="../js/checkout.js"></script>
+    <script src="../js/CityCountyData.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://kit.fontawesome.com/af098acfcb.js" crossorigin="anonymous"></script>
+  </body>
+</html>

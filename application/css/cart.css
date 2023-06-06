@@ -1,0 +1,64 @@
+.minusBtn, .minusBtn:hover{
+    border-color: #dfa198;
+    color: #dfa198;
+}
+
+.plusBtn, .plusBtn:hover{
+    border-color: #dfa198;
+    color: #fff;
+    background: #dfa198;
+}
+
+.numInput{
+    height:30px;
+    width: 50px;
+    border:1px solid #ddd;
+    border-radius:4px;
+    display: inline-block;
+    vertical-align: middle;
+    text-align: center;
+}
+.minusBtn, .plusBtn{
+    width:30px;
+    height:30px;
+    border-radius:4px;
+    display: inline-block;
+    vertical-align: middle;
+}
+#login, #signup{
+   color: #666;
+}
+#login:hover, #signup:hover{
+    color: #b3848f;
+}
+
+@media screen and (min-width: 769px){
+  .col-item {
+    width: 35%;
+  }
+  .col-price {
+    width: 15%;
+  }
+  .col-quantity {
+    width: 25%;
+  }
+  .col-total {
+    width: 15%;
+    text-align: right;
+  }
+  .col-edit {
+    width: 10%;
+    text-align: center;
+  }
+}
+
+/* 隱藏number箭頭 (Chrome, Safari, Edge, Opera) */
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.invalidItem{
+  opacity:0.6;
+}

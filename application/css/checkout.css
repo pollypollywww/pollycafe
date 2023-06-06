@@ -1,0 +1,43 @@
+.shipping-btn{
+    background: #bd939d;
+    width: 140px;
+    height: 50px;
+    display: flex; /* ★ */
+    align-items: center; /* ★ */
+    justify-content: center;
+}
+.msg{
+    color:#c55444
+}
+.note{
+    border-radius: 10px;;
+}
+.phonenum-form{
+    position: relative;
+}
+.phonenum-form input{
+    padding-left: 50px;
+}
+.areaCode{
+    position: absolute;
+    margin-top: 8px;
+    margin-left: 5px;
+    color: #777
+}
+.box{
+    border: 1px solid #E6E9EC;
+    border-radius: 8px;
+}
+@media screen and (max-width: 768px) {
+    .line{
+            border: 1px solid #ccc;
+            max-width: 320px;
+    }
+}
+@media screen and (min-width: 768px) {
+    .line{
+            border: 1px solid #ccc;
+            max-width: 350px;
+    }
+}
+

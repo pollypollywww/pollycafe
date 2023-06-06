@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/pageAll.css">
+    <title>Polly Cafe</title>
+    <style>
+
+    </style>
+  </head>
+  <body>
+    <!-- ---------------- Header ---------------- -->
+    <header class="fixed-top">
+      <div class="container">
+        <nav class="navbar navbar-expand-md">
+          <div style="margin-left: -20px;">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2" style="border: none;">
+              <i class="fa-solid fa-bars" style="color: #666;"></i>
+            </button>
+          </div>
+
+
+          <!-- LEFT -->
+          <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">ABOUT</a>
+                  <div class="dropdown-menu">
+                    <a class="dropdown-item" href="/#ourProducts">Products</a>
+                    <a class="dropdown-item" href="/#aboutUs">About Us</a>
+                  </div>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">ONLINE SHOP</a>
+                  <div class="dropdown-menu">
+                    <a class="dropdown-item" href="/#cake">蛋糕</a>
+                    <a class="dropdown-item" href="/#bread">麵包</a>
+                    <a class="dropdown-item" href="/#others">其他點心</a>
+                    <a class="dropdown-item" href="/#coffeebeans">咖啡豆</a>
+                  </div>
+                </li>
+              </ul>
+          </div>
+
+          <!-- LOGO -->
+          <div class="mx-auto order-0">
+            <a class="navbar-brand" href="/">
+              <h2 class="font-weight-bold" style="color:#444;">Polly Café</h2>
+            </a>
+          </div>
+
+          <!-- RIGHT -->
+          <div class="navbar-collapse collapse w-100 order-2 dual-collapse2">
+              <ul class="navbar-nav ml-auto">
+                <!-- <li class="nav-item">
+                  <a href="#" class="btn navbar-btn mr-2 outline-btn" id="tologin">登入</a>
+                  <a href="#" class="btn navbar-btn mr-2 dark-btn" id="toreg">註冊</a>
+                </li> -->
+                <li class="nav-item">
+                  <a href="/login" class="nav-link" id="login">登入</a>
+                </li>
+                <li class="nav-item">
+                  <a href="/signup" class="nav-link mr-1" id="signup">註冊</a>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-user"></i></a>
+                  <div class="dropdown-menu">
+                    <a class="dropdown-item" href="/members/orderlist">訂單查詢</a>
+                    <a class="dropdown-item" href="/members/edit">修改會員資料</a>
+                    <a class="dropdown-item" href="/members/edit-pwd">修改密碼</a>
+                  </div>
+                </li>
+                <li class="nav-item">
+                  <a href="/cart" method="GET" class="nav-link" id="shoppingcart"><i class="fa-solid fa-cart-shopping"></i></a>
+                </li>
+              </ul>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <br><br><br>
+
+    <section>
+      <div class="container">
+        <h3 class="text-center" style="color:#b3848f;">重設密碼-驗證</h3>
+        <div class="row justify-content-center">
+          <div class="col-md-5">
+            <div class="formBox p-3">
+              <div class="form-group row">
+                <label for="username"></label>
+                <input type="text" name="username" id="username" class="form-control" placeholder="請輸入註冊帳號" onkeyup="value=value.replace(/[^a-z0-9_]/g,'')">
+              </div>
+              
+              <div class="form-group row">
+                <label for="phone"></label>
+                <input type="tel" name="phone" id="phone" class="form-control" placeholder="請輸入註冊手機號碼" onkeyup="value=value.replace(/[^\d]/g,'')" maxlength="10">
+                <span class="inputNote ml-2 text-secondary w-100">( 僅數字，不需輸入分隔符號 )</span>
+              </div>
+              
+              <div class="row">
+                <span class="wrong" id="show_msg"></span>
+                <button type="button" class="btn btn-block add-btn mt-3" id="authorized_btn">驗證</button>
+              </div>
+
+             <br><br><br>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ---------------- Footer ---------------- -->
+    <footer class="footer">
+      <div class="container pt-3">
+        <div class="row">
+          <div class="col-12 d-flex justify-content-center mb-5">
+            <div class="left">
+              <p class="my-3 text-secondary contact">CONTACT</p>
+              <div class="footer-icon mb-1">
+                <a href="https://www.facebook.com/" target="_blank"><i class="fa-brands fa-facebook mr-2"></i></a>
+                <a href="http://instagram.com/" target="_blank"><i class="fa-brands fa-instagram mr-2"></i></a>
+                <a href="https://twitter.com/" target="_blank"><i class="fa-brands fa-twitter"></i></a>
+              </div>
+              <p class="mb-1">02-12345678</p>
+              <span><a href="mailto: pollypollywww@gmail.com" class="toThisLink"> pollypollywww@gmail.com</a></span>
+            </div>
+
+            <div class="right pt-4 pl-3">
+              <p class="mb-1 text-center pt-2">加入官方LINE</p>
+              <i class="fa-solid fa-qrcode fa-5x pl-3"></i>
+            </div>
+          </div>
+          
+        </div>
+        <p class="text-center mb-0">波波莉烘培坊</p>
+        <p class="text-center">Copyright © 2023 WanPOLLY All Rights Reserved.</p>
+      </div>
+    </footer>
+
+    <!-- jQuery and Bootstrap Bundle (includes Popper) -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js" integrity="sha512-quHCp3WbBNkwLfYUMd+KwBAgpVukJu5MncuQaWXgCrfgcxCJAq/fo+oqrRKOj+UKEmyMCG3tb8RB63W+EmrOBg==" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/af098acfcb.js" crossorigin="anonymous"></script>
+    <script src="../js/forgot-pwd.js"></script>
+    <script>
+      $(function(){
+        pwd_ResetAuthorized();
+      });
+    </script>
+  </body>
+</html>

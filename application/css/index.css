@@ -1,0 +1,44 @@
+.bg-cover{
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  
+  }
+  h1.hr-lines {
+    display: flex;
+    flex-direction: row;
+  }
+  h1.hr-lines:before, h1.hr-lines:after{
+    content: "";
+    flex: 1 1;
+    border-bottom: 1px solid;
+    margin: auto;
+  }
+  h1.hr-lines:before {
+    margin-right: 10px
+  }
+  h1.hr-lines:after {
+    margin-left: 10px
+  }
+  .cafeCenter{
+    margin: 0 20px;
+  }
+  .productTitle{
+    color: #b3848f;
+    padding-top: 78px;
+  }
+  .cbInfo{
+    color: #c55444;
+  }
+  @media screen and (max-width: 768px) {
+    .rwdText{
+      background-color: rgba(255, 255, 255, 0.8);
+    }
+    .cafeCenter{
+      margin: 0;
+    }
+  }
+  .pname{
+    font-size: 1.1rem;
+    font-weight: bold;
+  }

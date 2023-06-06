@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/pageAll.css">
+    <title>Polly Cafe</title>
+    <style>
+
+    </style>
+  </head>
+  <body>
+    <!-- ---------------- Header ---------------- -->
+    <header class="fixed-top">
+      <div class="container">
+        <nav class="navbar navbar-expand-md">
+          <div style="margin-left: -20px;">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2" style="border: none;">
+              <i class="fa-solid fa-bars" style="color: #666;"></i>
+            </button>
+          </div>
+
+
+          <!-- LEFT -->
+          <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">ABOUT</a>
+                  <div class="dropdown-menu">
+                    <a class="dropdown-item" href="/#ourProducts">Products</a>
+                    <a class="dropdown-item" href="/#aboutUs">About Us</a>
+                  </div>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">ONLINE SHOP</a>
+                  <div class="dropdown-menu">
+                    <a class="dropdown-item" href="/#cake">蛋糕</a>
+                    <a class="dropdown-item" href="/#bread">麵包</a>
+                    <a class="dropdown-item" href="/#others">其他點心</a>
+                    <a class="dropdown-item" href="/#coffeebeans">咖啡豆</a>
+                  </div>
+                </li>
+              </ul>
+          </div>
+
+          <!-- LOGO -->
+          <div class="mx-auto order-0">
+            <a class="navbar-brand" href="/">
+              <h2 class="font-weight-bold" style="color:#444;">Polly Café</h2>
+            </a>
+          </div>
+
+          <!-- RIGHT -->
+          <div class="navbar-collapse collapse w-100 order-2 dual-collapse2">
+              <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                  <a href="/logout" class="nav-link mr-1" id="logout">登出</a>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-user"></i></a>
+                  <div class="dropdown-menu">
+                    <a class="dropdown-item" href="/members/orderlist">訂單查詢</a>
+                    <a class="dropdown-item" href="/members/edit">修改會員資料</a>
+                    <a class="dropdown-item" href="/members/edit-pwd">修改密碼</a>
+                  </div>
+                </li>
+                <li class="nav-item">
+                  <a href="/cart" method="GET" class="nav-link" id="shoppingcart"><i class="fa-solid fa-cart-shopping"></i></a>
+                </li>
+              </ul>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <br><br>
+
+    <div class="container p-md-5 pt-2 my-4">
+      <h4>訂單查詢</h4>
+      <div class="row mb-4">
+        <div class="col" id="orderBox">
+          <!-- <div class="orderRecordBox bg-light p-3 mb-4">
+            <table class="table table-rwd text-center">
+              <thead>
+                <tr>
+                  <th>訂單編號</th>
+                  <th>訂單日期</th>
+                  <th>訂單金額</th>
+                  <th>付款狀態</th>
+                  <th>訂單狀態</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
+
+            <div class="accordion" id="accordionExample">
+              <div class="card">
+                <div class="card-header d-flex justify-content-between" id="headingOne">
+                  <p class="mb-0" style="text-decoration:none">詳細資訊</p>
+                  <i class="fa-solid fa-plus collapsed text-muted collapseAmend1" data-toggle="collapse" data-target="#accordionOne" aria-expanded="false" aria-controls="accordionOne"></i>
+                </div>
+                <div id="accordionOne" class="collapse collapseAmend2" aria-labelledby="headingOne" data-parent="#accordionExample">
+                  <div class="card-body">
+                    <div class="row mb-4">
+                      <div class="col-md-8">
+                        <table class="table table-rwd text-center">
+                          <thead>
+                            <tr>
+                              <th>品項</th>
+                              <th>價格</th>
+                              <th>數量</th>
+                              <th>總計</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+  
+                      <div class="col-md-4">
+                        <div class="row">
+                          <div class="col text-left pl-md-5">總數量</div>
+                          <div class="col-auto text-right"></div>
+                        </div>
+                        <div class="row">
+                          <div class="col text-left pl-md-5">小計</div>
+                          <div class="col-auto text-right">$ </div>
+                        </div>
+                        <div class="row">
+                          <div class="col text-left pl-md-5">運費</div>
+                          <div class="col-auto text-right"></div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                          <div class="col text-left pl-md-5">總計</div>
+                          <div class="col-auto text-right font-weight-bold text-danger">$ </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="row" style="background-color: #F7F7F7;">
+                      <div class="col p-3">  
+                        <div class="row mb-2">
+                          <div class="font-weight-bold col-md-3">配送方式</div>
+                          <div class="col-md-8"></div>
+                        </div>
+                        <div class="row mb-2">
+                          <div class="font-weight-bold col-md-3">付款方式</div>
+                          <div class="col-md-8"></div>
+                        </div>
+                        <div class="row mb-2">
+                          <div class="font-weight-bold col-md-3">付款人</div>
+                          <div class="col-md-8"></div>
+                        </div>
+                        <div class="row mb-2">
+                          <div class="font-weight-bold col-md-3">付款人電話</div>
+                          <div class="col-md-8"></div>
+                        </div>
+                        <div class="row mb-2">
+                          <div class="font-weight-bold col-md-3">匯款資訊</div>
+                          <div class="col-md-8"></div>
+                        </div> 
+                        <div class="row mb-2">
+                          <div class="font-weight-bold col-md-3">收件人</div>
+                          <div class="col-md-8"></div>
+                        </div>
+                        <div class="row mb-2">
+                          <div class="font-weight-bold col-md-3">收件電話</div>
+                          <div class="col-md-8"></div>
+                        </div>
+                        <div class="row mb-2">
+                          <div class="font-weight-bold col-md-3">收件地址</div>
+                          <div class="col-md-8"></div>
+                        </div>
+                        <div class="row">
+                          <div class="font-weight-bold col-md-3">客人備註</div>
+                          <div class="col-md-8"></div>
+                        </div> 
+                    </div>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div> -->
+        </div>
+      </div>
+    </div>
+
+    <!-- <div class="modal" id="paymodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title font-weight-bold" id="exampleModalLabel">付款資訊</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+              <div class="form-group row">
+                  <label for="transferTime" class="col-md-3 col-form-label">匯款時間</label>
+                  <div class="col-md-9"><input type="date" name="transferTime" id="transferTime" class="form-control"></div>
+              </div>
+              <div class="form-group row">
+                  <label for="lastFiveNum" class="col-md-3 col-form-label">帳號末五碼</label>
+                  <div class="col-md-9"><input type="text" name="lastFiveNum" id="lastFiveNum" class="form-control numberonly" placeholder="您的匯款帳號末五碼" maxlength="5"></div>
+              </div>
+              <div class="form-group row">
+                  <label for="transferAmount" class="col-md-3 col-form-label">匯款金額</label>
+                  <div class="col-md-9"><input type="text" name="transferAmount" id="transferAmount" class="form-control numberonly"></div>
+              </div>
+          </div>
+          <div class="modal-footer">
+            <a href="#" data-toggle="modal" data-dismiss="modal" class="btn dark-btn mx-auto">送出</a>
+        </div>
+        </div>
+      </div>
+    </div> -->
+
+    <!-- ---------------- Footer ---------------- -->
+    <footer class="footer">
+      <div class="container pt-3">
+        <div class="row">
+          <div class="col-12 d-flex justify-content-center mb-5">
+            <div class="left">
+              <p class="my-3 text-secondary contact">CONTACT</p>
+              <div class="footer-icon mb-1">
+                <a href="https://www.facebook.com/" target="_blank"><i class="fa-brands fa-facebook mr-2"></i></a>
+                <a href="http://instagram.com/" target="_blank"><i class="fa-brands fa-instagram mr-2"></i></a>
+                <a href="https://twitter.com/" target="_blank"><i class="fa-brands fa-twitter"></i></a>
+              </div>
+              <p class="mb-1">02-12345678</p>
+              <span><a href="mailto: pollypollywww@gmail.com" class="toThisLink"> pollypollywww@gmail.com</a></span>
+            </div>
+
+            <div class="right pt-4 pl-3">
+              <p class="mb-1 text-center pt-2">加入官方LINE</p>
+              <i class="fa-solid fa-qrcode fa-5x pl-3"></i>
+            </div>
+          </div>
+          
+        </div>
+        <p class="text-center mb-0">波波莉烘培坊</p>
+        <p class="text-center">Copyright © 2023 WanPOLLY All Rights Reserved.</p>
+      </div>
+    </footer>
+
+    <!-- jQuery and Bootstrap Bundle (includes Popper) -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js" integrity="sha512-quHCp3WbBNkwLfYUMd+KwBAgpVukJu5MncuQaWXgCrfgcxCJAq/fo+oqrRKOj+UKEmyMCG3tb8RB63W+EmrOBg==" crossorigin="anonymous"></script>
+    <script src="../js/orderlist.js"></script>
+    <script src="https://kit.fontawesome.com/af098acfcb.js" crossorigin="anonymous"></script>
+  </body>
+</html>

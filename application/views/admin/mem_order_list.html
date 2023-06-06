@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/adminAll.css">
+    <title>Polly Cafe</title>
+    <style>
+
+    </style>
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="row" style="height: 100vh;">
+
+        <!-- SideBar -->
+        <div class="col-md-3 col-xl-2 table-dark" id="sidebar">
+          <nav class="navbar navbar-expand-md flex-md-column">
+
+            <a href="/admin" class="sidebar-header navbar-brand font-weight-bold pl-md-3">Polly Cafe 後台管理系統</a>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2" style="border: none;">
+              <i class="fa-solid fa-bars" style="color: #666;"></i>
+            </button>
+
+            <div class="sidebar-content navbar-collapse collapse w-100 order-1 dual-collapse2 mt-3 mt-md-4 justify-content-center">
+              <ul class="navbar-nav flex-md-column w-100">
+                <li><p class="text-center mb-3">{{ logUserName }} 您好</p></li>
+                <li class="nav-item">
+                  <a href="#memberMangement" data-toggle="collapse" aria-expanded="false"  class="dropdown-toggle">會員管理</a>
+                  <ul class="collapse next-level" id="memberMangement">
+                      <li><a class="nav-link" href="/admin/mem/list">&nbsp;&nbsp;&nbsp;會員列表</a></li>
+                  </ul>
+                </li>
+
+                <li class="nav-item">
+                  <a href="#orderMangement" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">訂單管理</a>
+                  <ul class="collapse next-level" id="orderMangement">
+                      <li><a href="/admin/order/list">&nbsp;&nbsp;&nbsp;訂單列表</a></li>
+                  </ul>
+                </li>
+
+                <li class="nav-item">
+                  <a href="#itemManagement" data-toggle="collapse" aria-expanded="false"  class="dropdown-toggle">產品管理</a>
+                  <ul class="collapse next-level" id="itemManagement">
+                    <li><a href="/admin/item/list">&nbsp;&nbsp;&nbsp;產品列表</a></li>
+                    <li><a href="/admin/item/add">&nbsp;&nbsp;&nbsp;新增產品</a></li>
+                  </ul>
+                </li>
+
+                <li class="nav-item">
+                  <a class="level" href="/admin/statistics">數據統計</a>
+                </li>
+              </ul>
+            </div>
+
+            <div class="sidebar-footer navbar-collapse collapse w-100 order-2 dual-collapse2 mt-3 mt-md-5 justify-content-center">
+                <ul class="navbar-nav flex-md-column w-100">
+                  <li><a class="btn btn-block dark-btn" href="/" target="_blank">前台</a></li>
+                  <li><a class="btn btn-block btn-outline-light my-2" href="/logout">登出</a></li>
+                </ul>
+            </div>
+
+          </nav>
+        </div>
+
+        <!-- Content -->
+        <div class="col-md-9 col-xl-10">
+          <div class="content">
+            <h3 class="text-center mt-4" style="color:#b3848f;">會員訂單</h3>
+            <div class="row mb-4 justify-content-center">
+              <div class="col-xl-10" id="memOrder">
+                <p class="mb-0">會員帳號： {{UserName}}</p>
+                <p class="mb-0">訂單數量： {{countOrder}}&nbsp;&nbsp;( 進行中：{{ongoingOrder}}　結案：{{completeOrder}}　作廢：{{invalidOrder}} )</p>
+                {{#if result}}{{#each result}}
+                <div class="orderRecordBox bg-light p-md-2 mb-4">
+                    <table class="table table-rwd text-center">
+                        <thead>
+                            <tr>
+                                <th>訂單編號</th>
+                                <th>訂單日期</th>
+                                <th>訂單金額</th>
+                                <th>付款狀態</th>
+                                <th>訂單狀態</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td data-th="訂單編號">{{OrderId}}</td>
+                                <td data-th="訂單日期">{{formatDate createdAt}}</td>
+                                <td data-th="訂單金額">{{LocaleString Total}}</td>
+                                <td data-th="訂單狀態">{{PaymentStatus}}</td>
+                                <td data-th="訂單狀態">{{OrderStatus}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="accordion" id="accordion{{OrderId}}">
+                        <div class="card">
+                            <div class="card-header d-flex justify-content-between" id="heading{{OrderId}}">
+                                <p class="mb-0" style="text-decoration:none">詳細資訊</p>
+                                <i class="fa-solid fa-plus collapsed text-muted" data-toggle="collapse" data-target="#collapse{{OrderId}}" aria-expanded="false" aria-controls="collapse{{OrderId}}"></i>
+                            </div>
+                            <div id="collapse{{OrderId}}" class="collapse" aria-labelledby="heading{{OrderId}}" data-parent="#accordion{{OrderId}}">
+                                <div class="card-body">
+                                    <div class="row mb-4">
+                                        <div class="col-md-8">
+                                            <table class="table  text-center">
+                                                <thead>
+                                                    <tr>
+                                                        <th>品項</th>
+                                                        <th>價格</th>
+                                                        <th>數量</th>
+                                                        <th>總計</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                  {{#each this.OrderItem}}
+                                                  <tr>
+                                                    <td data-th="品項">{{ ItemName }} ({{ ItemSize }})</td>
+                                                    <td data-th="價格">{{LocaleString ItemPrice }}</td>
+                                                    <td data-th="數量">{{ ItemQuantity }}</td>
+                                                    <td data-th="總計">{{LocaleString ItemTotal }}</td>
+                                                  </tr>
+                                                  {{/each}}
+                                                </tbody>
+                                            </table>
+                                        </div>
+
+                                        <div class="col-md-4">
+                                            <div class="row">
+                                                <div class="col text-left pl-md-5">總數量</div>
+                                                <div class="col-auto text-right">{{Quantity}}</div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col text-left pl-md-5">小計</div>
+                                                <div class="col-auto text-right">$ {{LocaleString SubTotal}}</div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col text-left pl-md-5">運費</div>
+                                                <div class="col-auto text-right">$ {{ShippingFee}}</div>
+                                            </div>
+                                            <hr>
+                                            <div class="row">
+                                                <div class="col text-left pl-md-5">總計</div>
+                                                <div class="col-auto text-right font-weight-bold text-danger">$ {{LocaleString Total}}</div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row" style="background-color: #F7F7F7;">
+                                        <div class="col p-3">  
+                                            <div class="row mb-2">
+                                                <div class="font-weight-bold col-md-3">配送方式</div>
+                                                <div class="col-md-8">{{Shipping}}</div>
+                                            </div>
+                                            <div class="row mb-2">
+                                                <div class="font-weight-bold col-md-3">付款方式</div>
+                                                <div class="col-md-8">{{Payment}}</div>
+                                            </div>
+                                            <div class="row mb-2">
+                                                <div class="font-weight-bold col-md-3">付款人</div>
+                                                <div class="col-md-8">{{PayerName}}</div>
+                                            </div>
+                                            <div class="row mb-2">
+                                                <div class="font-weight-bold col-md-3">付款人電話</div>
+                                                <div class="col-md-8">{{PayerPhoneNum}}</div>
+                                            </div>
+                                            <div class="row mb-2">
+                                                <div class="font-weight-bold col-md-3">{{#if TransferInfo}}匯款資訊{{else}}{{/if}}</div>
+                                                <div class="col-md-8">{{#if TransferInfo}}{{ TransferInfo }}{{else}}{{/if}}</div>
+                                            </div> 
+                                            <div class="row mb-2">
+                                                <div class="font-weight-bold col-md-3">收件人</div>
+                                                <div class="col-md-8">{{ReciName}}</div>
+                                            </div>
+                                            <div class="row mb-2">
+                                                <div class="font-weight-bold col-md-3">收件電話</div>
+                                                <div class="col-md-8">{{ReciPhoneNum}}</div>
+                                            </div>
+                                            <div class="row mb-2">
+                                                <div class="font-weight-bold col-md-3">收件地址</div>
+                                                <div class="col-md-8">{{City}}{{District}} {{Address}}</div>
+                                            </div>
+                                            <div class="row mb-2">
+                                                <div class="font-weight-bold col-md-3">客人備註</div>
+                                                <div class="col-md-8">{{Note}}</div>
+                                            </div>
+                                            <div class="row">
+                                              <div class="font-weight-bold col-md-3">店家備註</div>
+                                              <div class="col-md-8">{{SellerNote}}</div>
+                                          </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {{/each}}{{else}}{{message}}{{/if}}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- jQuery and Bootstrap Bundle (includes Popper) -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/af098acfcb.js" crossorigin="anonymous"></script>
+  </body>
+</html>
