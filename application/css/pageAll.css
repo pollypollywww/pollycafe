@@ -34,6 +34,9 @@ section{
     margin-top: 8px;
     margin-bottom: 8px;
   }
+  .dropdown-item{
+    text-align: center;
+  }
 }
 .navbar-nav .nav-link:link, .navbar-nav .nav-link:visited{
   color: #b3848f;
