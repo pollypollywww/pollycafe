@@ -98,7 +98,7 @@ function loadItem(userCart) {
 function loadComplete() {
     $("#amount-block").html(
         `<p class="pt-3 text-right">共 <span id="cartCnt">${cnt}</span> 項商品，總數量: <span id="cartQuantity">${sumQuantity()}</span> 件</span></p>
-        <p class="pt-3 text-right">總金額： $ <span class="text-danger" id="cartTotal">${sumTotal().toLocaleString()}</span></p>
+        <p class="text-right">總金額： $ <span class="text-danger" id="cartTotal">${sumTotal().toLocaleString()}</span></p>
         <a href="/members/checkout" class="btn dark-btn float-right" id="checkout">結帳</a>`);
 
     $("#cartBody_true .quantity").on("change", function () {
