@@ -118,6 +118,8 @@ section{
   font-size: 1.2rem;
 }
 
+td { white-space:pre-line }
+
 @media screen and (max-width: 768px){
   /*最大寬度在768，超過就不會套用此屬性*/
   .table-rwd thead{
@@ -141,7 +143,6 @@ section{
       overflow: hidden;
       border-bottom:  #ccc;
       margin-bottom: -5px;
-      white-space:pre-line;
   }
   .table-rwd tbody tr td:before{
       content: attr(data-th)"：";
