@@ -148,12 +148,12 @@ section{
       font-weight: bolder;
       display: block;
       float: left;
-      width: 25%;
+      width: 32%;
+      height: 38px;
   }
   .table-rwd tbody tr td span.table-col{
       float: left;
       display: block;
-      width: 75%;
   }
 }
 
