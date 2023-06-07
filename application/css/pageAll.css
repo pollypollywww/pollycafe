@@ -141,7 +141,7 @@ section{
       overflow: hidden;
       border-bottom:  #ccc;
       margin-bottom: -5px;
-      text-align: center;
+      white-space:pre-line;
   }
   .table-rwd tbody tr td:before{
       content: attr(data-th)"：";
