@@ -64,7 +64,7 @@ function loadOrderList(orderData) {
                             <td data-th="訂單編號">${order.OrderId}</td>
                             <td data-th="訂單日期">${formatDate(order.createdAt)}</td>
                             <td data-th="訂單金額">${order.Total.toLocaleString()}</td>
-                            <td class"bg-warning" data-th="訂單狀態">${order.PaymentStatus === "待付款" ? `${order.PaymentStatus} <div class="text-center bg-danger"><a href="#" class="toThisLink" data-toggle="modal" data-target="#payModal${order.Id}">我已付款</a></div>` : order.PaymentStatus}</td>
+                            <td class="bg-warning" data-th="訂單狀態">${order.PaymentStatus === "待付款" ? `${order.PaymentStatus} <div class="text-center bg-danger"><a href="#" class="toThisLink" data-toggle="modal" data-target="#payModal${order.Id}">我已付款</a></div>` : order.PaymentStatus}</td>
                             <td data-th="訂單狀態">${order.OrderStatus}</td>
                         </tr>
                     </tbody>
