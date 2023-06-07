@@ -22,6 +22,7 @@ $(function(){
                     let message = res.data.message;
                     $("#err_username").html(message);
                     $("#err_username").css("color", "#0a8b8f");
+                    flag_username = true;
                 })
                 .catch(err => {
                     let message = err.response.data.message;
