@@ -31,17 +31,11 @@ nav ul{
 }
 .sidebar-header{
   color: #d6a8b3;
-  font-size: 17px;
+  font-size: 18px;
 }
 .sidebar-header:hover{
   color: #b3848f;
 }
-/* .sidebar-header a{
-  color: #d6a8b3;
-}
-.sidebar-header a:hover{
-  color: #b3848f;
-} */
 .sidebar-content ul li a{
   color: #fff;
   padding: 8px;
@@ -89,7 +83,6 @@ nav ul{
   font-size: 0.9rem;
 }
 
-
 @media screen and (max-width: 768px){
   /*最大寬度在768，超過就不會套用此屬性*/
   .table-rwd thead{
@@ -101,6 +94,9 @@ nav ul{
       margin-top: 10px;
       background-color: #fff;
       padding: 15px;
+  }
+  .table-rwd tbody tr:hover{
+      background-color: #fff;
   }
   .table td:first-child{ 
       border:none; 
@@ -160,7 +156,6 @@ nav ul{
       display: block;
   }
 }
-
 
 .btn_width{
   width: 150px;

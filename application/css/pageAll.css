@@ -130,6 +130,9 @@ section{
       background-color: #fff;
       padding: 15px;
   }
+  .table-rwd tbody tr:hover{
+      background-color: #fff;
+  }
   .table td:first-child{ 
       border:none; 
   }
