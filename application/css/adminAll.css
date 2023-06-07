@@ -157,6 +157,44 @@ nav ul{
   }
 }
 
+@media screen and (max-width: 1045px){
+  .table-rwd3 thead{
+      display: none;
+  }
+  .table-rwd3 tbody tr{
+      display: block;
+      border:  none;
+      margin-top: 10px;
+      background-color: #fff;
+      padding: 15px;
+  }
+  .table-rwd3 tbody tr:hover{
+      background-color: #fff;
+  }
+  .table td:first-child{ 
+      border:none; 
+  }
+  .table-rwd3 tbody tr td{
+      display: block;
+      overflow: hidden;
+      border-bottom:  #ccc;
+      margin-bottom: -5px;
+      
+  }
+  .table-rwd3 tbody tr td:before{
+      content: attr(data-th)"：";
+      color:  #cf543c;
+      font-weight: bolder;
+      display: block;
+      float: left;
+      width: 32%;
+  }
+  .table-rwd3 tbody tr td span.table-col{
+      float: left;
+      display: block;
+  }
+}
+
 .btn_width{
   width: 150px;
 }
