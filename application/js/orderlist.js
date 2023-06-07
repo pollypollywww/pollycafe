@@ -25,15 +25,6 @@ function loadOrderList(orderData) {
     if(dd < 10) dd = "0" + dd;
     let today = yyyy + "-" + MM + "-" + dd;
 
-    // var year = now.getFullYear();
-    // var month = (now.getMonth() + 1).toString().padStart(2, "0");
-    // var day = now.getDate().toString().padStart(2, "0");
-    // var today = year + "-" + month + "-" + day;
-
-    // var today = new Date().toISOString().split('T')[0];
-    // console.log(now);
-    // console.log(today);
-
     orderData.forEach(order => {
         let OrderItemHTML = "";
         order.OrderItem.forEach(item => {
@@ -214,25 +205,36 @@ function loadComplete() {
         let transferTime  = $(`[id="transferTime${OrderId}"]`).val();
         let lastFiveNum  = $(`[id="lastFiveNum${OrderId}"]`).val();
         let transferAmount = $(`[id="transferAmount${OrderId}"]`).val();
+        
+        // iphone不支援type=date 中設置 max，補充增加條件
+        let selectedDate = new Date(transferTime);
+        let today = new Date();
+        selectedDate.setHours(0, 0, 0, 0);
 
         if (!transferTime || lastFiveNum.length < 5 || lastFiveNum === "" || transferAmount === "") {
             alert("請確認內容是否完整");
             e.preventDefault();
             return false;
         } else {
-            let TransferInfo = `匯款時間：${transferTime} / 帳號末五碼：${lastFiveNum} / 匯款金額：${transferAmount}`;
-            axios.post("/members/transferInfo", { OrderId, TransferInfo })
-                .then(res => {
-                    let message = res.data.message;
-                    alert(message);
-                    location.reload();
-                })
-                .catch(err => {
-                    let message = err.response.data.message;
-                    alert(message);
-                });
+            if(selectedDate > today){
+                alert("選擇日期不可大於今日");
+                e.preventDefault();
+                return false;
+            }else{
+                let TransferInfo = `匯款時間：${transferTime} / 帳號末五碼：${lastFiveNum} / 匯款金額：${transferAmount}`;
+                axios.post("/members/transferInfo", { OrderId, TransferInfo })
+                    .then(res => {
+                        let message = res.data.message;
+                        alert(message);
+                        location.reload();
+                    })
+                    .catch(err => {
+                        let message = err.response.data.message;
+                        alert(message);
+                    });
+            }
         }
-    })
+    });
 }
 
 function formatDate(oldDate) {
