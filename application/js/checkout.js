@@ -150,6 +150,9 @@ function closingBlock() {
     // 運送區塊
     $("input[type='radio'][name='shippingType']").on("click", function () {
         if ($(this).val() === "宅配") {
+            $("#city").prop("disabled", false);
+            $("#district").prop("disabled", false);
+            $("#address").prop("disabled", false);
             $("#shippingMsg").text("宅配運費: 160元");
             $("#shipping").text("$ 160");
             let countTotal = parseInt($("#subtotal").text().replace("$", "").replace(",", "")) + parseInt($("#shipping").text().replace("$", ""));
