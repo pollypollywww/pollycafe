@@ -68,11 +68,11 @@
         <!-- Content -->
         <div class="col-md-9 col-xl-10">
           <div class="content">
-            <h3 class="text-center mt-4" style="color:#b3848f;">會員訂單</h3>
+            <h3 class="text-center mt-4 mb-3" style="color:#b3848f;">會員訂單</h3>
             <div class="row mb-4 justify-content-center">
               <div class="col-xl-10" id="memOrder">
                 <p class="mb-0">會員帳號： {{UserName}}</p>
-                <p>訂單數量： {{countOrder}}&nbsp;&nbsp;( 進行中：{{ongoingOrder}}　結案：{{completeOrder}}　作廢：{{invalidOrder}} )</p>
+                <p class="mb-2">訂單數量： {{countOrder}}&nbsp;&nbsp;( 進行中：{{ongoingOrder}}　結案：{{completeOrder}}　作廢：{{invalidOrder}} )</p>
                 {{#each result}}
                 <div class="orderRecordBox bg-light p-md-2 mb-4">
                     <table class="table table-rwd text-center">
