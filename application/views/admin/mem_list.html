@@ -75,7 +75,7 @@
               <div class="col">
                 <p class="text-left mb-0" style="font-size: 0.8rem;">*密碼採用加鹽加密保護(擷取片段字元，展示用)</p>
                 <div class="memList p-md-2">
-                  <table class="table table-hover table-rwd3 text-center" style="font-size: 0.9rem;">
+                  <table class="table table-hover table-rwd3 text-center" style="font-size: 0.96rem;">
                     <thead class="thead-dark">
                       <tr>
                         <th>ID</th>
@@ -87,10 +87,11 @@
                         <th>手機</th>
                         <th>Email</th>
                         <th>等級</th>
-                        <th>管理</th>
+                        <th>編輯</th>
+                        <th>查看</th>
                       </tr>
                     </thead>
-                    <tbody>
+                    <tbody class="toThisLink">
                       {{#each result}}
                       <tr>
                         <td data-th="ID">{{ UserId }}</td>
@@ -102,12 +103,14 @@
                         <td data-th="手機">{{ Phone }}</td>
                         <td data-th="Email">{{ Email }}</td>
                         <td data-th="等級">{{ Level }}</td>
-                        <td data-th="管理">
+                        <td data-th="編輯"><a href="/admin/mem/edit/{{UserId}}">修改</a</td>
+                        <td data-th="查看"><a href="/admin/mem/orderList/{{UserId}}">訂單</a></td>
+                   <!-- <td data-th="管理">
                           <div class="toThisLink justify-content-center">
                             <a href="/admin/mem/orderList/{{UserId}}">訂單 |</a>
                             <a href="/admin/mem/edit/{{UserId}}">修改</a>  
                           </div>
-                        </td>
+                        </td> -->
                       </tr>
                       {{/each}}
                     </tbody>
