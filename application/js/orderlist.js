@@ -39,10 +39,10 @@ function loadOrderList(orderData) {
         order.OrderItem.forEach(item => {
             OrderItemHTML += `
                 <tr>
-                    <td>${item.ItemName} (${item.ItemSize})</td>
-                    <td>${item.ItemPrice.toLocaleString()}</td>
-                    <td>${item.ItemQuantity}</td>
-                    <td>${item.ItemTotal.toLocaleString()}</td>
+                    <td data-th="品項">${item.ItemName} (${item.ItemSize})</td>
+                    <td data-th="價格">${item.ItemPrice.toLocaleString()}</td>
+                    <td data-th="數量">${item.ItemQuantity}</td>
+                    <td data-th="總計">${item.ItemTotal.toLocaleString()}</td>
                 </tr>
             `;
         });
@@ -80,7 +80,7 @@ function loadOrderList(orderData) {
                             <div class="card-body">
                                 <div class="row mb-4">
                                     <div class="col-md-8">
-                                        <table class="table  text-center">
+                                        <table class="table table-rwd2 text-center">
                                             <thead>
                                                 <tr>
                                                     <th>品項</th>

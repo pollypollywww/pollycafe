@@ -102,9 +102,6 @@ nav ul{
       background-color: #fff;
       padding: 15px;
   }
-  .table-rwd tbody tr:hover{
-      background-color: #fff;
-  }
   .table td:first-child{ 
       border:none; 
   }
@@ -121,14 +118,49 @@ nav ul{
       font-weight: bolder;
       display: block;
       float: left;
-      width: 25%;
+      width: 32%;
   }
   .table-rwd tbody tr td span.table-col{
       float: left;
       display: block;
-      width: 75%;
   }
 }
+
+@media screen and (max-width: 768px){
+  /*最大寬度在768，超過就不會套用此屬性*/
+  .table-rwd2 thead{
+      display: none;
+  }
+  .table-rwd2 tbody tr{
+      display: block;
+      border:  none;
+      margin-top: 10px;
+      background-color: #fcf7f0;
+      padding: 15px;
+  }
+  .table td:first-child{ 
+      border:none; 
+  }
+  .table-rwd2 tbody tr td{
+      display: block;
+      overflow: hidden;
+      border-bottom:  #ccc;
+      margin-bottom: -5px;
+  }
+  .table-rwd2 tbody tr td:before{
+      content: attr(data-th)"：";
+      color:  #666;
+      font-weight: bolder;
+      display: block;
+      float: left;
+      width: 32%;
+  }
+  .table-rwd2 tbody tr td span.table-col{
+      float: left;
+      display: block;
+  }
+}
+
 
 .btn_width{
   width: 150px;
