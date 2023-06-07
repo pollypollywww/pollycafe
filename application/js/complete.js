@@ -24,9 +24,14 @@ $(function () {
             <h4>已收到您的訂單</h4>
             <h5>訂單編號：${orderId}</h5>
             <br>
-            <h5>匯款帳號: 國泰世華(013) 123456-654321</h5>
-            <h5 class="text-danger">請於 ${validDate} 20:00 前完成付款，經審查後如逾時將取消訂單</h5>
-            <h5>完成匯款後請至 <a class="toThisLink" href="/members/orderlist"><會員專區-訂單紀錄></a> 更新匯款資訊(來電或LINE告知亦可)</h5>
+            <h5>匯款帳號：</h5>
+            <h5>國泰世華(013) 123456-654321</h5>
+            <br>
+            <h5 class="text-danger">請於 ${validDate} 20:00 前完成付款</h5>
+            <h5 class="text-danger">經審查後如逾時將取消訂單</h5>
+            <h5>完成匯款後</h5>
+            <h5>請至 <a class="toThisLink" href="/members/orderlist"><會員專區-訂單紀錄></a> </h5>
+            <h5>更新匯款資訊(來電或LINE告知亦可)</h5>
         `);
     }
 });
