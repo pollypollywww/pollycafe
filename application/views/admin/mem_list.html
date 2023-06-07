@@ -96,7 +96,7 @@
                         <td data-th="ID">{{ UserId }}</td>
                         <td data-th="姓名">{{ Name }}</td>
                         <td data-th="帳號">{{ UserName }}</td>
-                        <td data-th="密碼" style="font-size: 0.7rem;">{{shorten Passwd }}</td>
+                        <td data-th="密碼">{{shorten Passwd }}</td>
                         <td data-th="生日">{{ Bday }}</td>
                         <td data-th="性別">{{ Gender }}</td>
                         <td data-th="手機">{{ Phone }}</td>
@@ -104,9 +104,10 @@
                         <td data-th="等級">{{ Level }}</td>
                         <td data-th="管理">
                           <div class="toThisLink justify-content-center">
-                            <a class="mr-1" href="/admin/mem/orderList/{{UserId}}">訂單</a>
+                            <a href="/admin/mem/orderList/{{UserId}}">訂單 |</a>
                             <a href="/admin/mem/edit/{{UserId}}">修改</a>  
                           </div>
+                        </td>
                       </tr>
                       {{/each}}
                     </tbody>
