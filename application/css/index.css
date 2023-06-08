@@ -15,20 +15,14 @@
   }
   @media screen and (min-width: 768px) {
     .first img{
-      margin-top: 25%;
+      margin-top: 20%;
       max-width: 40vw;
     }
   }
   @media screen and (min-width: 1200px) {
     .first img{
-      margin-top: 10%;
-      max-width: 33vw;
-    }
-  }
-  @media screen and (min-width: 1400px) {
-    .first img{
-      margin-top: 10%;
-      max-width: 28vw;
+      margin-top: 8%;
+      max-width: 30vw;
     }
   }
 
