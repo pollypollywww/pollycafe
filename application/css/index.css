@@ -2,8 +2,29 @@
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
-  
   }
+  .content{
+    overflow-x: hidden;
+  }
+  @media screen and (max-width: 768px) {
+    .first img{
+      margin-top: 10%;
+      max-width: 50vw;
+    }
+  }
+  @media screen and (max-width: 992px) {
+    .first img{
+      margin-top: 15%;
+      max-width: 40vw;
+    }
+  }
+  @media screen and (min-width: 993px) {
+    .first img{
+      margin-top: 15%;
+      max-width: 40vw;
+    }
+  }
+
   h1.hr-lines {
     display: flex;
     flex-direction: row;
