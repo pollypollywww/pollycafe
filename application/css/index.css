@@ -9,12 +9,12 @@
   @media screen and (max-width: 768px) {
     .first img{
       margin-top: 10%;
-      max-width: 50vw;
+      max-width: 60vw;
     }
   }
   @media screen and (max-width: 992px) {
     .first img{
-      margin-top: 15%;
+      margin-top: 20%;
       max-width: 40vw;
     }
   }
