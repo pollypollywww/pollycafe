@@ -309,8 +309,10 @@ router.put("/order/pushPaymentStatus", async(req, res)=>{
     
         if(message === "已收到款項"){
             let result = await model.order.updateOne({ OrderId },{ $set:{ PaymentStatus: "已付款", SellerNote }})
+        }else if(message === "逾期未收到款項"){
+            let result = await model.order.updateOne({ OrderId },{ $set:{ PaymentStatus: "逾期未收到款項", OrderStatus: "已作廢", SellerNote }})
         }else if(message === "退款申請"){
-            let result = await model.order.updateOne({ OrderId },{ $set:{ PaymentStatus: "待退款", SellerNote }})
+            let result = await model.order.updateOne({ OrderId },{ $set:{ PaymentStatus: "待退款", OrderStatus: "取消中", SellerNote }})
         }else if(message === "已完成退款"){
             let result = await model.order.updateOne({ OrderId },{ $set:{ PaymentStatus: "已退款", OrderStatus: "已作廢", SellerNote }})
         }

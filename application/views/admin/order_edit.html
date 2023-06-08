@@ -88,6 +88,7 @@
                         <!-- <option value="待付款">待付款</option>
                         <option value="款項確認中">款項確認中</option>
                         <option value="已付款">已付款</option>
+                        <option value="逾期未收到款項">逾期未收到款項</option>
                         <option value="待退款">待退款</option>
                         <option value="已退款">已退款</option> -->
                       </select>
@@ -245,6 +246,7 @@
 
       if("{{result.PaymentStatus}}" === "款項確認中"){
         $(".btn-operation").append(`<a class="ml-2 btn btn_width dark-btn" id="receive_btn">已收到款項</a>`)
+        $(".btn-operation").append(`<a class="ml-2 btn btn_width dark-btn" id="overdue_btn">逾期未收到款項</a>`)
       }else if("{{result.PaymentStatus}}" === "已付款"){
         $(".btn-operation").append(`<a class="ml-2 btn btn_width dark-btn" id="refund_btn">退款申請</a>`)
       }else if("{{result.PaymentStatus}}" === "待退款"){
@@ -267,6 +269,13 @@
       $("#receive_btn").on("click", function(){
         if(confirm("確認收到款項? (請確認已於備註進行說明)")){
           let message = "已收到款項"
+          updatePaymentStatus(message);
+        }
+      });
+
+      $("#overdue_btn").on("click", function(){
+        if(confirm("確認已逾期，未收到款項? (請確認已於備註進行說明)")){
+          let message = "逾期未收到款項"
           updatePaymentStatus(message);
         }
       });
