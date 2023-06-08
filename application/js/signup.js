@@ -142,8 +142,16 @@ $(function(){
             $("#err_bday").html("請選擇生日");
             flag_bday = false;
         }else{
-            $("#err_bday").empty();
-            flag_bday = true;
+            let selectedDate = new Date(Bday);
+            let now = new Date();
+            selectedDate.setHours(0, 0, 0, 0);
+            if(selectedDate > now){
+                $("#err_bday").html("選擇日期不可大於今日");
+                flag_bday = false;
+            }else{
+                $("#err_bday").empty();
+                flag_bday = true;
+            }
         }
 
         if(!Gender){
