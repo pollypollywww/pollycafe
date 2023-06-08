@@ -6,6 +6,12 @@
   .content{
     overflow-x: hidden;
   }
+  @media screen and (max-width: 576px) {
+    .first img{
+      margin-top: 10%;
+      max-width: 80vw;
+    }
+  }
   @media screen and (max-width: 768px) {
     .first img{
       margin-top: 10%;
@@ -18,10 +24,16 @@
       max-width: 40vw;
     }
   }
-  @media screen and (min-width: 993px) {
+  @media screen and (max-width: 1200px) {
     .first img{
       margin-top: 15%;
-      max-width: 40vw;
+      max-width: 35vw;
+    }
+  }
+  @media screen and (min-width: 1201px) {
+    .first img{
+      margin-top: 10%;
+      max-width: 30vw;
     }
   }
 
