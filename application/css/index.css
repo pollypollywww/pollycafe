@@ -19,6 +19,12 @@
       max-width: 40vw;
     }
   }
+  @media screen and (min-width: 992px) {
+    .first img{
+      margin-top: 15%;
+      max-width: 40vw;
+    }
+  }
   @media screen and (min-width: 1200px) {
     .first img{
       margin-top: 8%;
