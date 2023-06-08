@@ -7,31 +7,25 @@
     overflow-x: hidden;
   }
   
-  @media screen and (max-width: 576px) {
-    .first img{
-      margin-top: 10%;
-      max-width: 100vw;
-    }
-  }
   @media screen and (max-width: 768px) {
     .first img{
       margin-top: 10%;
-      max-width: 60vw;
+      max-width: 65vw ;
     }
   }
-  @media screen and (max-width: 992px) {
+  @media screen and (min-width: 768px) {
     .first img{
       margin-top: 25%;
       max-width: 40vw;
     }
   }
-  @media screen and (max-width: 1200px) {
+  @media screen and (min-width: 1200px) {
     .first img{
-      margin-top: 15%;
-      max-width: 35vw;
+      margin-top: 10%;
+      max-width: 33vw;
     }
   }
-  @media screen and (min-width: 1201px) {
+  @media screen and (min-width: 1400px) {
     .first img{
       margin-top: 10%;
       max-width: 28vw;
