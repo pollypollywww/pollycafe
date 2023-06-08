@@ -238,7 +238,7 @@ router.get("/order/list", async(req, res) => {
 
         let countOrder = await model.order.countDocuments({});
         let completeOrder = await model.order.countDocuments({ PaymentStatus: "已付款", OrderStatus: "已送達" });
-        let invalidOrder = await model.order.countDocuments({ PaymentStatus: "已退款", OrderStatus: "已作廢" });
+        let invalidOrder = await model.order.countDocuments({ OrderStatus: "已作廢" });
         let ongoingOrder = countOrder - completeOrder - invalidOrder;
 
         res.render("admin/order_list.html", { UserName, result, countOrder, completeOrder, invalidOrder, ongoingOrder });
