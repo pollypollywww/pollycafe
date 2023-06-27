@@ -370,6 +370,8 @@ router.get("/statistics", async(req, res) => {
             }},
             { $sort: { count: -1 } }
         ]);
+
+        //console.log(JSON.stringify(countType, null, 2));
         //console.log(countType);
 
         if(result_sum.length > 0 && countItem.length > 0 && countType.length > 0){
