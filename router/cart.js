@@ -38,7 +38,9 @@ router.get("/",
                 // 有cart -> 更新 cart
                 let existingCartItems = findUserCart.CartItem;
 
-                // 檢查 storageCart 中的每一個項目，如果 cart 有 -> 更新 ItemId 的數量，如果 cart 沒有 -> 新增到 cart
+                // 檢查 storageCart 中的每一個項目
+                // 如果 cart 有 -> 更新 ItemId 的數量
+                // 如果 cart 沒有 -> 新增到 cart
                 let checkEachItem = storageCart.map(storageItem => {
 
                     // 尋找 cart 與 storageCart 是否有相同 ItemId 的項目
@@ -63,9 +65,10 @@ router.get("/",
                         }
                     }
                 });
-
+                
                 let result = await model.cart.bulkWrite(checkEachItem);
                 //console.log(result);
+
                 if (result) {
                     //console.log("成功: 登入後 >> 有 購物車 >> 加入未登入前的 storageCart");
                     localStorage.removeItem('storageCart');
